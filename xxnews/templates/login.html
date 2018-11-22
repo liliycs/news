@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block link %}
+    <style>
+        .errors {
+            color: red;
+            font-size: 25px;
+        }
+    </style>
+{% endblock %}
+{% block container %}
+    <div class="container">
+        <div class="form-container">
+            <h1>登录
+                <small>没有账号？<a href="/signup">注册</a></small>
+            </h1>
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label>用户名/手机/邮箱</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                {% csrf_token %}
+                <p>忘记密码？</p>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">登录</button>
+                </div>
+            </form>
+            {% if error %}
+                <div class="errors">{{ error }}</div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

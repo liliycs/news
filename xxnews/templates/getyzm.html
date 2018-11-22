@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block container %}
+    <div class="container">
+        <div class="form-container">
+            <h1>登录
+                <small>没有账号？<a href="/signup">注册</a></small>
+            </h1>
+            <form action="/getyzm/{{ user_id }}/{{ code }}" method="post">
+                <div class="form-group">
+                    <label>手机验证</label>
+                    <input type="password" class="form-control" name="new_code">
+                </div>
+                {% csrf_token %}
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">发送</button>
+                </div>
+            </form>
+            {{ error }}
+        </div>
+    </div>
+{% endblock %}

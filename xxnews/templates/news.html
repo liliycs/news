@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+{% block container %}
+    <div class="container">
+        <div class="col-md-8 news">
+            <h1 class="title">{{ data.title }}</h1>
+            <p class="info">
+                <span>阅读：{{ data.clicked }}</span> •
+                <span>{{ data.user_id.username }}</span> •
+                <span>{{ data.publish_time }}</span>
+                <span class="label label-default">{{ data.picture }}</span>
+            </p>
+            <div class="show_comment">
+                {% for ct in comment %}
+                    <span>{{ ct.user_id.username }}:</span><span>({{ ct.publish_time }}) </span>
+                    <div>
+                        {{ ct.content|safe }}
+                    </div>
+                       <hr>
+                {% endfor %}
+            </div>
+
+            <div class="comment">
+                <form action="/news/{{ data.id }}" method="post">
+                {#                    <textarea id="description" name="content" cols="77" rows="4" required>想说点什么....</textarea>#}
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="submit" value="评论">
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="side-bar-well">
+                <strong class="side-bar-well-title">
+                    相关推荐
+                </strong>
+                <a href="#" class="news-item clearfix">
+                    <div class="row">
+          <span class="col-xs-5">
+            <img src="https://dummyimage.com/600x500/ddd/999" alt="">
+          </span>
+                        <span class="col-xs-7">
+            <div class="news-title">Lorem adipisicing elit. Consequuntur aut </div>
+            <div class="news-info">
+                8.9万次播放  ⋅ 3367评论
+            </div>
+          </span>
+                    </div>
+                </a>
+                <a href="#" class="news-item clearfix">
+                    <div class="row">
+          <span class="col-xs-5">
+            <img src="https://dummyimage.com/600x500/ddd/999" alt="">
+          </span>
+                        <span class="col-xs-7">
+            <div class="news-title">Lorem adipisicing elit. Consequuntur aut </div>
+            <div class="news-info">
+                8.9万次播放  ⋅ 3367评论
+            </div>
+          </span>
+                    </div>
+                </a>
+                <a href="#" class="news-item clearfix">
+                    <div class="row">
+          <span class="col-xs-5">
+            <img src="https://dummyimage.com/600x500/ddd/999" alt="">
+          </span>
+                        <span class="col-xs-7">
+            <div class="news-title">Lorem adipisicing elit. Consequuntur aut </div>
+            <div class="news-info">
+                8.9万次播放  ⋅ 3367评论
+            </div>
+          </span>
+                    </div>
+                </a>
+                <a href="#" class="news-item clearfix">
+                    <div class="row">
+          <span class="col-xs-5">
+            <img src="https://dummyimage.com/600x500/ddd/999" alt="">
+          </span>
+                        <span class="col-xs-7">
+            <div class="news-title">Lorem adipisicing elit. Consequuntur aut </div>
+            <div class="news-info">
+                8.9万次播放  ⋅ 3367评论
+            </div>
+          </span>
+                    </div>
+                </a>
+                <a href="#" class="news-item clearfix">
+                    <div class="row">
+          <span class="col-xs-5">
+            <img src="https://dummyimage.com/600x500/ddd/999" alt="">
+          </span>
+                        <span class="col-xs-7">
+            <div class="news-title">Lorem adipisicing elit. Consequuntur aut </div>
+            <div class="news-info">
+                8.9万次播放  ⋅ 3367评论
+            </div>
+          </span>
+                    </div>
+                </a>
+            </div>
+            <div class="side-bar-well">
+                <strong class="side-bar-well-title">
+                    24小时热闻
+                </strong>
+                <a href="#" class="news-item">
+                    <div class="news-title">Consectetur adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        5.9万次播放 ⋅ 167评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Lorem adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        8.9万次播放 ⋅ 3367评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Consectetur adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        5.9万次播放 ⋅ 167评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Lorem adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        8.9万次播放 ⋅ 3367评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Consectetur adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        5.9万次播放 ⋅ 167评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Lorem adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        8.9万次播放 ⋅ 3367评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Consectetur adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        5.9万次播放 ⋅ 167评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Lorem adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        8.9万次播放 ⋅ 3367评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Consectetur adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        5.9万次播放 ⋅ 167评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Lorem adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        8.9万次播放 ⋅ 3367评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Consectetur adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        5.9万次播放 ⋅ 167评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Lorem adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        8.9万次播放 ⋅ 3367评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Consectetur adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        5.9万次播放 ⋅ 167评论
+                    </div>
+                </a>
+                <a href="#" class="news-item">
+                    <div class="news-title">Lorem adipisicing elit. Consequuntur aut</div>
+                    <div class="news-info">
+                        8.9万次播放 ⋅ 3367评论
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
